@@ -5,3 +5,6 @@ RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-english.
 RUN tar -C "/var/www/html" -xvzf phpMyAdmin-5.1.0-english.tar.gz && rm phpMyAdmin-5.1.0-english.tar.gz
 RUN mv /var/www/html/phpMyAdmin-5.1.0-english/ /var/www/html/phpmyadmin
 COPY srcs/nginx.conf /etc/nginx/sites-available/
+COPY srcs/script.sh /
+RUN chmod +x script.sh
+CMD ./script.sh
